@@ -1,0 +1,108 @@
+/* =========================================
+   ORGANIZING FACULTY SECTION
+   ========================================= */
+.organizing-committee {
+  padding: 80px 20px;
+  background-color: var(--bg-light); /* Keeps the background consistent */
+  text-align: center;
+}
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+
+.faculty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The circular image placeholder */
+.faculty-img-placeholder {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid #E2E8F0; /* Soft border like the image */
+  background-color: #FFFFFF;
+  margin-bottom: 25px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Add box-shadow for a subtle lift */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+/* When you add real images, this will format them perfectly inside the circle */
+.faculty-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Typography for the names and titles */
+.faculty-name {
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.faculty-role {
+  color: var(--accent-orange);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 5px 0;
+}
+
+.faculty-desc {
+  color: var(--text-gray);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* View All Button */
+.view-all-container {
+  margin-top: 30px;
+}
+
+.btn-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accent-orange);
+  color: #FFFFFF;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none; /* Removes the underline from the link */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+}
+
+.btn-view-all svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-view-all:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(245, 166, 35, 0.4);
+}
+
+/* Responsive Grid */
+@media (max-width: 900px) {
+  .faculty-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+}
+@media (max-width: 500px) {
+  .faculty-grid { grid-template-columns: 1fr; }
+}

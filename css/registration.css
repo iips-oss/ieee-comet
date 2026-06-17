@@ -1,0 +1,306 @@
+/* =========================================
+   REGISTRATION SECTION
+   ========================================= */
+.registration {
+  padding: 100px 20px;
+  background-color: #FFFFFF;
+  font-family: 'Inter', sans-serif; /* 🔥 Forces the modern font inside this section */
+}
+
+.registration-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-subtitle-text {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  margin-top: -15px;
+}
+
+/* --- Pricing Cards Grid --- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 80px;
+  align-items: center; /* Aligns cards in the middle so the popular one can pop out */
+}
+
+.pricing-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 30px 25px;
+  border: 1px solid #E2E8F0; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  position: relative;
+  
+  /* 🔥 Added border and shadow to the transition for a smooth glow */
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  
+  display: flex; 
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* 🔥 The Radiating Blue Glow on Hover */
+.pricing-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--theme-blue);
+  box-shadow: 0 15px 30px rgba(59, 90, 140, 0.2), 0 0 20px rgba(59, 90, 140, 0.15);
+}
+
+/* --- Popular Pricing Card --- */
+.pricing-card.popular {
+  border: 2px solid var(--theme-blue);
+  box-shadow: 0 20px 40px rgba(59, 90, 140, 0.15);
+  padding-top: 45px; 
+  transform: scale(1.05); 
+  z-index: 10;
+}
+
+/* 🔥 Boosts the glow on the popular card when hovered */
+.pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 25px 45px rgba(59, 90, 140, 0.25), 0 0 25px rgba(59, 90, 140, 0.2);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--theme-blue);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+/* --- Card Typography --- */
+.category-name {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.price-container {
+  color: var(--primary-dark);
+  margin-bottom: 5px;
+}
+
+.price-container .currency { font-size: 1.5rem; vertical-align: top; font-weight: 600; }
+.price-container .price { font-size: 3.5rem; font-weight: 800; line-height: 1; }
+.price-container .currency-type { font-size: 1rem; color: var(--text-gray); margin-left: 5px; }
+
+.savings {
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+
+.requirement {
+  color: var(--text-gray);
+  font-size: 0.75rem;
+  margin-bottom: 20px; /* Tighter gap */
+  min-height: 35px; /* Keeps titles aligned if they wrap to two lines */
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0; /* Tighter gap */
+  flex-grow: 1; /* Pushes the button to the absolute bottom of the card */
+}
+
+.features-list li {
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+  margin-bottom: 12px; /* Tighter spacing between bullets */
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.features-list svg {
+  width: 18px;
+  height: 18px;
+  color: var(--theme-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* --- Card Buttons --- */
+.btn-outline, .btn-filled {
+  width: 100%;
+  padding: 12px; /* Slightly thinner buttons */
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto; /* Anchors the button securely to the bottom */
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--theme-blue);
+  color: var(--theme-blue);
+}
+
+.btn-outline:hover {
+  background: #F1F5F9;
+}
+
+.btn-filled {
+  background: var(--theme-blue);
+  border: 1px solid var(--theme-blue);
+  color: #FFFFFF;
+}
+
+.btn-filled:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* --- Data Table --- */
+.table-wrapper {
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  border: 1px solid #CBD5E1; /* 🔥 Slightly darker gray for better visibility */
+}
+.table-intro-text {
+  text-align: center;
+  max-width: 800px;
+  /* 🔥 Added top margin and pushed bottom margin down to separate it from the cards */
+  margin: 20px auto 50px auto; 
+  color: var(--text-gray);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.pricing-table th, .pricing-table td {
+  padding: 20px 15px;
+  font-size: 0.95rem;
+}
+
+/* Header Rows */
+.header-dark th {
+  background-color: var(--primary-dark);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.header-blue th {
+  background-color: var(--theme-blue);
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.col-category {
+  width: 25%;
+  text-align: left !important;
+  padding-left: 30px !important;
+}
+
+/* Body Rows */
+
+.pricing-table tbody tr {
+  border-bottom: 1px solid #CBD5E1; /* 🔥 Slightly darker gray for the row dividers */
+}
+
+.pricing-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.row-title {
+  text-align: left;
+  padding-left: 30px !important;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.pricing-table td {
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+/* --- Footer & Final Button --- */
+.registration-footer {
+  text-align: center;
+}
+
+.gst-note {
+  color: #94A3B8;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.btn-massive-orange {
+  background: var(--accent-orange);
+  color: #FFFFFF;
+  border: none;
+  padding: 20px 60px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(245, 166, 35, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-massive-orange:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(245, 166, 35, 0.4);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+    gap: 40px;
+  }
+  .pricing-card.popular {
+    transform: scale(1); /* Removes the size bump on mobile so it doesn't break layout */
+  }
+  .pricing-card.popular:hover {
+    transform: translateY(-5px);
+  }
+  .table-wrapper {
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  
+  /* Standard gray border for top and sides */
+  border: 1px solid #E2E8F0; 
+  
+  /* 🔥 NEW: Thick blue line at the bottom matching the header */
+  border-bottom: 4px solid var(--theme-blue); 
+}
+  .pricing-table {
+    min-width: 800px; /* Forces table to stay wide so it doesn't squish */
+  }
+}
