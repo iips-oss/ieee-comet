@@ -1,0 +1,192 @@
+/* --- Global Resets & Base Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling when clicking anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1a1e2d;
+  line-height: 1.5;
+  background-color: #ffffff;
+}
+
+.section-container {
+  padding: 80px 20px;
+}
+
+.content-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Typography & Headers --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #fef4e5;
+  color: #3b609c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+/* --- Guidelines Section --- */
+.guidelines-bg {
+  background-color: #ffffff;
+}
+
+.guidelines-header {
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+}
+
+.section-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-top: 12px;
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.guide-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  /* Smooth transition for hover effects */
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Modern Hover Effect: Light Cards */
+.guide-card:not(.dark-card):hover {
+  transform: translateY(-5px);
+  border-color: #d1d5db;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.guide-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+.guide-content p {
+  color: #6b7280;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Dark Card Specifics & Hover */
+.dark-card {
+  background-color: #2e4468;
+  border-color: #2e4468;
+  box-shadow: 0 4px 15px rgba(46, 68, 104, 0.1);
+}
+
+/* Modern Hover Effect: Dark Card */
+.dark-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(46, 68, 104, 0.25);
+}
+
+.dark-card .guide-content h3 {
+  color: #ffffff;
+}
+
+.dark-card .guide-content p {
+  color: #d1d5db; 
+}
+
+/* Icons */
+.icon-box {
+  width: 44px;
+  height: 44px;
+  background-color: #fef4e5; 
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #9c6c3b; 
+}
+
+.icon-box svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* --- Modern Scroll-Driven Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Automatically triggers fade-in when cards scroll into view */
+.timeline-card, .guide-card {
+  animation: fadeInUp both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30px;
+}
+
+
+/* --- Responsiveness for Tablets and Mobile Devices --- */
+@media (max-width: 768px) {
+  .section-container {
+    padding: 50px 20px;
+  }
+
+  .timeline-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .timeline-date {
+    flex: none;
+    margin-bottom: 8px;
+  }
+
+  .guidelines-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Disable intense translate animations on mobile for performance */
+  .timeline-card, .guide-card {
+    animation-range: entry 5% cover 15px;
+  }
+}
