@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tracks = [
+  {
+    number: "Track 1",
+    title: "Artificial Intelligence & Intelligent Systems",
+    topics: [
+      "Deep Learning and Neural Networks",
+      "Natural Language Processing & Computer Vision",
+      "Generative AI & Large Language Models (LLMs)",
+      "Explainable AI (XAI) & Ethical AI",
+      "Reinforcement Learning & Decision Systems",
+      "AI in Healthcare, Finance, and Agriculture"
+    ],
+    borderClass: "border-l-4 border-l-blue-600"
+  },
+  {
+    number: "Track 2",
+    title: "Next-Gen Communication & Networking",
+    topics: [
+      "5G / 6G Communications and Architectures",
+      "Software Defined Networks (SDN) and NFV",
+      "Mobile Ad-Hoc Networks (MANETs) and VANETs",
+      "Optical and Satellite Communications",
+      "Cognitive Radio & Spectrum Management",
+      "Sensor Networks and Distributed Systems"
+    ],
+    borderClass: "border-l-4 border-l-cyan-600"
+  },
+  {
+    number: "Track 3",
+    title: "Cybersecurity, Privacy & Cryptology",
+    topics: [
+      "Network Security, Intrusion Detection & Prevention",
+      "Cryptography & Post-Quantum Cryptology",
+      "Blockchain & Decentralized Ledger Technologies",
+      "Privacy-Preserving Computation & Federated Learning",
+      "Threat Intelligence and Malware Analysis",
+      "Trust & Identity Management Systems"
+    ],
+    borderClass: "border-l-4 border-l-purple-600"
+  },
+  {
+    number: "Track 4",
+    title: "IoT, Cloud & Embedded Architectures",
+    topics: [
+      "Edge Computing and Cloud-Native Technologies",
+      "Industrial IoT (IIoT) & Cyber-Physical Systems",
+      "Smart Cities & Intelligent Transport Networks",
+      "Low-Power Embedded Hardware & VLSI Design",
+      "Real-Time OS & System-on-Chip (SoC)",
+      "Energy Harvesting & Green Computing systems"
+    ],
+    borderClass: "border-l-4 border-l-emerald-600"
+  }
+];
+---
+
+<Layout title="Call for Papers" activePage="Call for Papers">
+  <!-- Top Banner / Header -->
+  <section class="bg-slate-50 border-b border-slate-200 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs font-bold tracking-wider text-primary uppercase block mb-2">Submissions</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">Call for Papers</h1>
+      <p class="max-w-2xl mx-auto text-sm text-slate-600">
+        We invite authors to submit original, unpublished technical research papers presenting new research findings in the areas of modern emerging technologies.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Tracks - Left 2 Columns -->
+      <div class="lg:col-span-2 space-y-12">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-2">Conference Tracks</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mb-8">
+            Authors are encouraged to submit technical papers describing research results in the scope of, but not limited to, the following four technical tracks:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {tracks.map((track) => (
+            <div class={`academic-card p-6 flex flex-col h-full bg-white ${track.borderClass}`}>
+              <span class="text-[10px] text-primary font-bold tracking-wider uppercase mb-1">{track.number}</span>
+              <h3 class="text-slate-900 font-extrabold text-base mb-4 leading-snug border-b border-slate-100 pb-2">{track.title}</h3>
+              <ul class="space-y-2.5 text-xs text-slate-600 flex-grow">
+                {track.topics.map((topic) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-primary shrink-0 mt-0.5">•</span>
+                    <span>{topic}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Guidelines - Right Column -->
+      <div class="space-y-8">
+        <!-- Submission Quick Actions -->
+        <div class="academic-card p-6 sm:p-8 bg-white border border-primary/20">
+          <h3 class="text-primary font-bold text-base mb-4 tracking-wide border-b border-slate-100 pb-2">Submit a Manuscript</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-6">
+            All papers must be formatted in accordance with the official IEEE conference paper templates (LaTeX/Word) and submitted via our online submission system.
+          </p>
+          
+          <div class="space-y-4">
+            <a 
+              href="https://template-selector.ieee.org/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="flex items-center justify-between p-3 rounded-[4px] bg-slate-50 border border-slate-200 text-xs font-semibold text-primary hover:bg-slate-100 transition-all"
+            >
+              <span>IEEE Template Selector</span>
+              <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+            
+            <a 
+              href="#" 
+              class="flex items-center justify-between p-3 rounded-[4px] bg-primary hover:bg-primary-dark text-xs font-bold text-white shadow-sm transition-all"
+            >
+              <span>Go to CMT Portal</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Submission Rules -->
+        <div class="academic-card p-6 sm:p-8 bg-white space-y-4">
+          <h3 class="text-slate-900 font-bold text-sm tracking-wide border-b border-slate-100 pb-2">Author Guidelines</h3>
+          <ul class="space-y-4 text-xs text-slate-600">
+            <li class="leading-relaxed">
+              <strong class="text-slate-800 block mb-0.5">Page Limit:</strong>
+              Regular technical papers can have a maximum of 6 pages, including all figures, tables, and references.
+            </li>
+            <li class="leading-relaxed">
+              <strong class="text-slate-800 block mb-0.5">Format:</strong>
+              Submissions must be in PDF format, adhering to IEEE Standard double-column layout (A4 size).
+            </li>
+            <li class="leading-relaxed">
+              <strong class="text-slate-800 block mb-0.5">Review Policy:</strong>
+              IIPS-CoMET follows a double-blind peer-review policy. Author details must be omitted from the initial submission PDF.
+            </li>
+            <li class="leading-relaxed">
+              <strong class="text-slate-800 block mb-0.5">Plagiarism Limits:</strong>
+              IEEE policy prohibits copying text without attribution. A similarity index below 20% is strictly required (CrossCheck).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

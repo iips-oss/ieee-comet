@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const committeeGroups = [
+  {
+    category: "Patrons",
+    members: [
+      { name: "Prof. (Dr.) Renu Jain", role: "Chief Patron", institution: "Vice Chancellor, Devi Ahilya Vishwavidyalaya (DAVV), Indore" },
+      { name: "Prof. (Dr.) B. K. Tripathi", role: "Patron", institution: "Director, International Institute of Professional Studies (IIPS), DAVV" }
+    ]
+  },
+  {
+    category: "General Chairs",
+    members: [
+      { name: "Dr. Anand Karandikar", role: "General Chair", institution: "Professor, IIPS, DAVV, Indore" },
+      { name: "Dr. Shaligram Prajapat", role: "General Chair & Convener", institution: "Professor, IIPS, DAVV, Indore" }
+    ]
+  },
+  {
+    category: "Organizing Secretaries",
+    members: [
+      { name: "Dr. Kirti Mathur", role: "Organizing Secretary", institution: "Associate Professor, IIPS, DAVV, Indore" },
+      { name: "Dr. Ramesh Thakur", role: "Joint Organizing Secretary", institution: "Assistant Professor, IIPS, DAVV, Indore" }
+    ]
+  },
+  {
+    category: "Technical Program Committee (TPC) Chairs",
+    members: [
+      { name: "Dr. Vivek Shrivastava", role: "TPC Chair", institution: "Associate Professor, IIPS, DAVV, Indore" },
+      { name: "Dr. Ashutosh Gupta", role: "TPC Co-Chair", institution: "Professor of Computer Engineering, IIT Indore, India" },
+      { name: "Dr. Sanjay Kumar", role: "TPC Co-Chair", institution: "Nanyang Technological University (NTU), Singapore" }
+    ]
+  }
+];
+
+const advisoryCommittee = [
+  { name: "Dr. N. S. Chaudhari", institution: "Professor & Former Director, VNIT Nagpur (IIT Indore)" },
+  { name: "Dr. Rajiv Saxena", institution: "Professor & Director, LNMIIT, Jaipur" },
+  { name: "Dr. Durgesh Kumar Mishra", institution: "Chairman, ACM Indore Chapter" },
+  { name: "Dr. G. S. Tomar", institution: "Chairman, IEEE MP Subsection" },
+  { name: "Dr. Narendra S. Chaudhari", institution: "IIT Indore, India" },
+  { name: "Dr. Deepak B. Phatak", institution: "Professor Emeritus, IIT Bombay, India" }
+];
+---
+
+<Layout title="Committees" activePage="Committees">
+  <!-- Top Banner -->
+  <section class="bg-slate-50 border-b border-slate-200 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs font-bold tracking-wider text-primary uppercase block mb-2">Organization</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">Conference Committees</h1>
+      <p class="max-w-2xl mx-auto text-sm text-slate-600">
+        IIPS-CoMET 2026 is driven by an esteemed group of academic leaders, steering specialists, and reviews professionals.
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Committee Sections -->
+  <section class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    
+    <!-- Loop through core committee groups -->
+    {committeeGroups.map((group) => (
+      <div class="space-y-6">
+        <div class="flex items-center gap-4">
+          <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight shrink-0">{group.category}</h2>
+          <div class="h-[1px] w-full bg-slate-200"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {group.members.map((member) => (
+            <div class="academic-card p-5 bg-white relative overflow-hidden">
+              <span class="text-[9px] text-primary font-bold tracking-wider uppercase block mb-1">{member.role}</span>
+              <h3 class="text-slate-900 font-extrabold text-sm tracking-wide mb-2">{member.name}</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">{member.institution}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <!-- Advisory Board Section -->
+    <div class="space-y-6">
+      <div class="flex items-center gap-4">
+        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight shrink-0">National & International Advisory Board</h2>
+        <div class="h-[1px] w-full bg-slate-200"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {advisoryCommittee.map((member) => (
+          <div class="academic-card p-5 bg-white flex items-start gap-3">
+            <span class="text-primary font-extrabold text-sm mt-0.5">▪</span>
+            <div>
+              <h3 class="text-slate-900 font-bold text-xs tracking-wide mb-1">{member.name}</h3>
+              <p class="text-[11px] text-slate-500 leading-relaxed">{member.institution}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

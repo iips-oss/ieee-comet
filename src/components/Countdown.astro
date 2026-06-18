@@ -1,0 +1,103 @@
+---
+interface Props {
+  targetDate?: string; // Format: "YYYY-MM-DDTHH:MM:SS"
+  title?: string;
+}
+
+const { 
+  targetDate = "2026-10-15T23:59:59", 
+  title = "Paper Submission Deadline" 
+} = Astro.props;
+---
+
+<div class="bg-white border border-border-color rounded-[6px] p-6 text-center shadow-sm max-w-xl mx-auto relative overflow-hidden" data-target={targetDate}>
+  <span class="text-xs font-bold tracking-wider text-primary uppercase block mb-3">{title}</span>
+  
+  <!-- Counter Grid -->
+  <div class="grid grid-cols-4 gap-3 sm:gap-4 max-w-sm mx-auto" id="countdown-timer">
+    <!-- Days -->
+    <div class="flex flex-col items-center py-3 px-2 rounded-[4px] bg-slate-50 border border-slate-200">
+      <span class="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight" id="days">00</span>
+      <span class="text-[9px] sm:text-xs text-text-muted font-semibold tracking-wider uppercase mt-1">Days</span>
+    </div>
+    
+    <!-- Hours -->
+    <div class="flex flex-col items-center py-3 px-2 rounded-[4px] bg-slate-50 border border-slate-200">
+      <span class="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight" id="hours">00</span>
+      <span class="text-[9px] sm:text-xs text-text-muted font-semibold tracking-wider uppercase mt-1">Hours</span>
+    </div>
+    
+    <!-- Minutes -->
+    <div class="flex flex-col items-center py-3 px-2 rounded-[4px] bg-slate-50 border border-slate-200">
+      <span class="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight" id="minutes">00</span>
+      <span class="text-[9px] sm:text-xs text-text-muted font-semibold tracking-wider uppercase mt-1">Mins</span>
+    </div>
+    
+    <!-- Seconds -->
+    <div class="flex flex-col items-center py-3 px-2 rounded-[4px] bg-slate-50 border border-slate-200">
+      <span class="text-xl sm:text-2xl font-bold text-primary tracking-tight" id="seconds">00</span>
+      <span class="text-[9px] sm:text-xs text-text-muted font-semibold tracking-wider uppercase mt-1">Secs</span>
+    </div>
+  </div>
+
+  <p class="text-xs text-text-muted mt-4 font-mono" id="countdown-date-display"></p>
+</div>
+
+<script>
+  function initializeCountdown() {
+    const container = document.querySelector('[data-target]');
+    if (!container) return;
+
+    const targetStr = container.getAttribute('data-target') || '';
+    const targetTime = new Date(targetStr).getTime();
+    
+    const displayElement = document.getElementById('countdown-date-display');
+    if (displayElement) {
+      const options: Intl.DateTimeFormatOptions = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      };
+      displayElement.textContent = `Target: ${new Date(targetStr).toLocaleDateString(undefined, options)}`;
+    }
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    function update() {
+      const now = new Date().getTime();
+      const diff = targetTime - now;
+
+      if (diff <= 0) {
+        if (daysEl) daysEl.textContent = '00';
+        if (hoursEl) hoursEl.textContent = '00';
+        if (minutesEl) minutesEl.textContent = '00';
+        if (secondsEl) secondsEl.textContent = '00';
+        if (displayElement) displayElement.textContent = "Deadline Passed!";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = String(m).padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = String(s).padStart(2, '0');
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  initializeCountdown();
+  document.addEventListener('astro:after-swap', initializeCountdown);
+</script>

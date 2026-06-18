@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const contacts = [
+  { name: "Dr. Shaligram Prajapat", role: "General Chair & Convener", email: "sprajapat@iips.edu.in", phone: "+91 94250 56832" },
+  { name: "Dr. Kirti Mathur", role: "Organizing Secretary", email: "kmathur@iips.edu.in", phone: "+91 98932 87342" },
+  { name: "General Conference Desk", role: "Inquiries & Registration Support", email: "comet@iips.edu.in", phone: "+91 731 2461888" }
+];
+---
+
+<Layout title="Contact" activePage="Contact">
+  <!-- Top Banner -->
+  <section class="bg-slate-50 border-b border-slate-200 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs font-bold tracking-wider text-primary uppercase block mb-2">Support</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">Contact Us</h1>
+      <p class="max-w-2xl mx-auto text-sm text-slate-600">
+        If you have any questions regarding the call for papers, registration, or travel details, feel free to reach out.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+      
+      <!-- Contact details card - Left Column -->
+      <div class="space-y-6 lg:col-span-1">
+        <h2 class="text-lg font-extrabold text-slate-900 tracking-tight mb-4">Organizing Desk</h2>
+        
+        {contacts.map((contact) => (
+          <div class="academic-card p-5 bg-white space-y-3 relative overflow-hidden">
+            <span class="text-[9px] text-primary font-bold tracking-wider uppercase block mb-1">{contact.role}</span>
+            <h3 class="text-slate-900 font-extrabold text-sm tracking-wide">{contact.name}</h3>
+            
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center gap-2 text-slate-600 hover:text-primary transition-colors">
+                <span class="text-primary font-semibold">✉</span>
+                <a href={`mailto:${contact.email}`} class="select-all font-mono">{contact.email}</a>
+              </div>
+              <div class="flex items-center gap-2 text-slate-600 hover:text-primary transition-colors">
+                <span class="text-primary font-semibold">☎</span>
+                <span class="select-all font-mono">{contact.phone}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Contact query form - Right 2 Columns -->
+      <div class="lg:col-span-2 academic-card p-8 bg-white space-y-6">
+        <div>
+          <h2 class="text-lg font-extrabold text-slate-900 tracking-tight">Send a Query</h2>
+          <p class="text-xs text-slate-500 mt-1">Fill out this quick form and our response team will get back to you within 48 hours.</p>
+        </div>
+
+        <form class="space-y-5" id="contact-form" onsubmit="event.preventDefault(); alert('Query submitted! Thank you.');">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Full Name -->
+            <div class="space-y-2">
+              <label for="name" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider">Full Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                required
+                class="w-full px-3 py-2.5 rounded-[4px] bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                placeholder="John Doe"
+              />
+            </div>
+            
+            <!-- Email -->
+            <div class="space-y-2">
+              <label for="email" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider">Email Address</label>
+              <input 
+                type="email" 
+                id="email" 
+                required
+                class="w-full px-3 py-2.5 rounded-[4px] bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                placeholder="john@example.com"
+              />
+            </div>
+          </div>
+
+          <!-- Subject -->
+          <div class="space-y-2">
+            <label for="subject" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              required
+              class="w-full px-3 py-2.5 rounded-[4px] bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+              placeholder="Registration query, Paper Submission status..."
+            />
+          </div>
+
+          <!-- Message -->
+          <div class="space-y-2">
+            <label for="message" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider">Message Details</label>
+            <textarea 
+              id="message" 
+              rows="5"
+              required
+              class="w-full px-3 py-2.5 rounded-[4px] bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"
+              placeholder="Write your query details here..."
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2">
+            <button 
+              type="submit" 
+              class="w-full py-3 rounded-[4px] bg-primary hover:bg-primary-dark text-white font-bold text-sm tracking-wide shadow-sm transition-all cursor-pointer"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

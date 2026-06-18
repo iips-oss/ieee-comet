@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const nationalFees = [
+  { category: "Student (UG/PG/PhD)", ieee: "₹ 4,500", nonIeee: "₹ 5,500" },
+  { category: "Academician / Researcher", ieee: "₹ 6,500", nonIeee: "₹ 7,500" },
+  { category: "Industry Professional", ieee: "₹ 8,500", nonIeee: "₹ 10,000" },
+  { category: "Attendee Only (No presentation)", ieee: "₹ 2,000", nonIeee: "₹ 2,500" }
+];
+
+const internationalFees = [
+  { category: "Student (UG/PG/PhD)", ieee: "$ 150", nonIeee: "$ 200" },
+  { category: "Academician / Researcher", ieee: "$ 250", nonIeee: "$ 300" },
+  { category: "Industry Professional", ieee: "$ 350", nonIeee: "$ 450" },
+  { category: "Attendee Only (No presentation)", ieee: "$ 100", nonIeee: "$ 120" }
+];
+---
+
+<Layout title="Registration" activePage="Registration">
+  <!-- Top Banner -->
+  <section class="bg-slate-50 border-b border-slate-200 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs font-bold tracking-wider text-primary uppercase block mb-2">Participation</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">Registration Details</h1>
+      <p class="max-w-2xl mx-auto text-sm text-slate-600">
+        Registration is mandatory for all accepted papers. Secure your spot to present and network at IIPS-CoMET 2026.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Fee Tables - Left 2 Columns -->
+      <div class="lg:col-span-2 space-y-12">
+        <!-- National Fees -->
+        <div class="bg-white border border-slate-200 rounded-[6px] overflow-hidden shadow-sm">
+          <div class="p-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+            <div>
+              <h2 class="text-base font-bold text-slate-900 tracking-wide">National Participants (India)</h2>
+              <p class="text-xs text-slate-500 mt-1">Registration fees are inclusive of GST.</p>
+            </div>
+            <span class="text-[10px] font-bold tracking-wider text-primary uppercase bg-blue-50 px-2 py-1 rounded border border-blue-100">INR (₹)</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-xs font-bold text-slate-500 uppercase bg-slate-50">
+                  <th class="px-6 py-3.5">Participant Category</th>
+                  <th class="px-6 py-3.5">IEEE Members</th>
+                  <th class="px-6 py-3.5 text-right">Non-IEEE Members</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+                {nationalFees.map((row) => (
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="px-6 py-4 font-semibold text-slate-900">{row.category}</td>
+                    <td class="px-6 py-4 text-primary font-semibold">{row.ieee}</td>
+                    <td class="px-6 py-4 text-right text-slate-700 font-medium">{row.nonIeee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- International Fees -->
+        <div class="bg-white border border-slate-200 rounded-[6px] overflow-hidden shadow-sm">
+          <div class="p-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+            <div>
+              <h2 class="text-base font-bold text-slate-900 tracking-wide">International Participants</h2>
+              <p class="text-xs text-slate-500 mt-1">Applicable for authors registering outside India.</p>
+            </div>
+            <span class="text-[10px] font-bold tracking-wider text-emerald-800 uppercase bg-emerald-50 px-2 py-1 rounded border border-emerald-100">USD ($)</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-xs font-bold text-slate-500 uppercase bg-slate-50">
+                  <th class="px-6 py-3.5">Participant Category</th>
+                  <th class="px-6 py-3.5">IEEE Members</th>
+                  <th class="px-6 py-3.5 text-right">Non-IEEE Members</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+                {internationalFees.map((row) => (
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="px-6 py-4 font-semibold text-slate-900">{row.category}</td>
+                    <td class="px-6 py-4 text-primary font-semibold">{row.ieee}</td>
+                    <td class="px-6 py-4 text-right text-slate-700 font-medium">{row.nonIeee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment & Policy - Right Column -->
+      <div class="space-y-8">
+        <!-- Payment details -->
+        <div class="academic-card p-6 sm:p-8 bg-white border border-primary/25 space-y-5">
+          <div>
+            <h3 class="text-primary font-bold text-base tracking-wide border-b border-slate-100 pb-2">How to Pay</h3>
+            <p class="text-xs text-slate-500 mt-1">Payment can be made through Direct NEFT/IMPS Transfer.</p>
+          </div>
+
+          <div class="space-y-4 text-xs">
+            <div class="p-4 rounded bg-slate-50 border border-slate-200 space-y-2.5">
+              <div class="flex justify-between border-b border-slate-100 pb-2">
+                <span class="text-slate-500 font-semibold">Bank Name</span>
+                <span class="text-slate-950 font-bold">State Bank of India (SBI)</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-100 pb-2">
+                <span class="text-slate-500 font-semibold">Account Name</span>
+                <span class="text-slate-950 font-bold">IIPS DAVV Conference A/c</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-100 pb-2">
+                <span class="text-slate-500 font-semibold">Account No.</span>
+                <span class="text-slate-950 font-bold select-all">38491823901</span>
+              </div>
+              <div class="flex justify-between border-b border-slate-100 pb-2">
+                <span class="text-slate-500 font-semibold">IFSC Code</span>
+                <span class="text-primary font-bold select-all">SBIN0030001</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500 font-semibold">Branch</span>
+                <span class="text-slate-950 font-bold">DAVV Campus, Indore</span>
+              </div>
+            </div>
+            
+            <a 
+              href="#" 
+              class="block w-full text-center py-2.5 px-4 rounded-[4px] bg-primary hover:bg-primary-dark text-xs font-bold text-white shadow-sm transition-all cursor-pointer"
+            >
+              Submit Payment Receipt (Google Form)
+            </a>
+          </div>
+        </div>
+
+        <!-- Registration Policies -->
+        <div class="academic-card p-6 sm:p-8 bg-white space-y-4">
+          <h3 class="text-slate-900 font-bold text-sm tracking-wide border-b border-slate-100 pb-2">Key Registration Rules</h3>
+          <ul class="space-y-3 text-xs text-slate-600 leading-relaxed list-disc list-inside">
+            <li>For an accepted paper to be submitted to IEEE Xplore, at least one author must register at the non-attendee rate.</li>
+            <li>IEEE members must upload a valid copy of their IEEE membership card during registration receipt submission.</li>
+            <li>Student registrants must present a valid institutional ID card.</li>
+            <li>Registration fee includes access to all technical sessions, conference kit, lunch, tea breaks, and dinner.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

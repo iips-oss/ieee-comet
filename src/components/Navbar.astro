@@ -1,0 +1,163 @@
+---
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Call for Papers', href: '/call-for-papers' },
+  { name: 'Committees', href: '/committees' },
+  { name: 'Important Dates', href: '/dates' },
+  { name: 'Registration', href: '/registration' },
+  { name: 'Venue & Travel', href: '/venue' },
+  { name: 'Contact', href: '/contact' }
+];
+
+const { activePage = "" } = Astro.props;
+---
+
+<!-- Top branding area (Static) -->
+<div class="bg-white border-b border-slate-200 py-5 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <!-- College Details -->
+    <a href="/" class="flex items-center gap-4 self-start md:self-auto">
+      <div class="w-12 h-12 bg-primary text-white flex items-center justify-center font-bold text-xl rounded-[4px] shadow-sm select-none shrink-0">
+        I
+      </div>
+      <div>
+        <p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">IEEE Sponsored Conference</p>
+        <h2 class="text-base font-extrabold text-[#004B76] leading-tight">International Institute of Professional Studies</h2>
+        <p class="text-xs text-slate-600 font-medium">Devi Ahilya Vishwavidyalaya (DAVV), Indore, India</p>
+      </div>
+    </a>
+    
+    <!-- Conference Title -->
+    <div class="text-left md:text-right self-start md:self-auto shrink-0 border-l-2 md:border-l-0 md:border-r-2 border-primary pl-3 md:pl-0 md:pr-3 py-1">
+      <h1 class="text-xl font-black text-primary tracking-wide leading-none">IIPS-CoMET 2026</h1>
+      <p class="text-[10px] text-text-muted font-bold tracking-wide uppercase mt-1">IEEE Conference on Modern Emerging Technologies</p>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Nav & Announcements Wrapper -->
+<div class="sticky top-0 z-50 shadow-md" id="sticky-nav-wrapper">
+  <!-- Main Navigation Bar -->
+  <nav class="bg-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-13">
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-1">
+          {navItems.map((item) => {
+            const isActive = activePage === item.name || (item.href === '/' && activePage === 'Home');
+            return (
+              <a
+                href={item.href}
+                class={`px-3.5 py-4.5 text-xs font-bold tracking-wider uppercase transition-all border-b-2 hover:bg-primary-dark ${
+                  isActive
+                    ? 'border-white bg-primary-dark'
+                    : 'border-transparent text-slate-100 hover:text-white'
+                }`}
+              >
+                {item.name}
+              </a>
+            );
+          })}
+        </div>
+
+        <!-- Submit Button (Desktop) -->
+        <div class="hidden md:block">
+          <a
+            href="/call-for-papers"
+            class="px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-[3px] text-xs font-bold uppercase tracking-wider transition-all shadow-sm"
+          >
+            Submit Paper
+          </a>
+        </div>
+
+        <!-- Mobile Title/Logo (Visible only on mobile header row) -->
+        <span class="md:hidden font-extrabold text-sm tracking-wide">
+          IIPS-CoMET 2026
+        </span>
+
+        <!-- Mobile menu toggle button -->
+        <div class="md:hidden flex items-center">
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="inline-flex items-center justify-center p-2 text-slate-200 hover:text-white hover:bg-primary-dark focus:outline-none"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6 block" id="menu-icon-open" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <svg class="h-6 w-6 hidden" id="menu-icon-close" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Announcements Ticker Bar -->
+  <div class="bg-amber-50 border-b border-amber-200 py-2 overflow-hidden text-xs font-bold text-amber-800 tracking-wide select-none">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+      <span class="bg-amber-700 text-white px-2 py-0.5 rounded-[3px] text-[9px] font-bold uppercase mr-4 shrink-0 shadow-sm">Update</span>
+      <div class="flex-grow overflow-hidden whitespace-nowrap relative flex items-center h-4">
+        <div class="animate-marquee inline-block absolute left-0">
+          <span class="mx-8">📢 Call for Papers is now active. All papers must conform to IEEE conference format!</span>
+          <span class="mx-8">📅 Paper Submission Deadline: October 15, 2026.</span>
+          <span class="mx-8">💡 Selected papers will be recommended for journal publications.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="md:hidden hidden bg-[#004b76] border-t border-[#00395a] text-white" id="mobile-menu">
+    <div class="px-2 pt-2 pb-4 space-y-1">
+      {navItems.map((item) => {
+        const isActive = activePage === item.name || (item.href === '/' && activePage === 'Home');
+        return (
+          <a
+            href={item.href}
+            class={`block px-4 py-2.5 rounded-[3px] text-sm font-bold uppercase tracking-wider transition-all ${
+              isActive
+                ? 'bg-primary text-white border-l-4 border-white'
+                : 'text-slate-100 hover:text-white hover:bg-primary-dark'
+            }`}
+          >
+            {item.name}
+          </a>
+        );
+      })}
+      <div class="pt-4 pb-2 px-4 border-t border-[#00395a]">
+        <a
+          href="/call-for-papers"
+          class="block w-full text-center py-2 px-4 rounded-[3px] bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs uppercase tracking-wider shadow-sm"
+        >
+          Submit Paper
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle logic
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = document.getElementById('menu-icon-open');
+  const closeIcon = document.getElementById('menu-icon-close');
+
+  if (menuBtn && mobileMenu && openIcon && closeIcon) {
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!isExpanded));
+      
+      mobileMenu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  }
+</script>
