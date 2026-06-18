@@ -82,6 +82,8 @@ const advisoryCommittee = [
   { name: "Dr. Narendra S. Chaudhari", institution: "IIT Indore, India" },
   { name: "Dr. Deepak B. Phatak", institution: "Professor Emeritus, IIT Bombay, India" }
 ];
+const base = import.meta.env.BASE_URL;
+const getLink = (path: string) => path === '/' ? base : `${base.replace(/\/$/, '')}${path}`;
 ---
 
 <Layout title="Committees" activePage="Committees">
@@ -111,7 +113,7 @@ const advisoryCommittee = [
           <div class="academic-card bg-white p-5 flex items-center gap-4 border border-slate-200">
             <div class="w-28 h-28 rounded-[4px] border border-slate-200 overflow-hidden shrink-0 bg-slate-50 flex items-center justify-center shadow-sm">
               <img 
-                src={member.image} 
+                src={getLink(member.image)} 
                 alt={member.name} 
                 class="w-full h-full object-cover"
               />
@@ -139,7 +141,7 @@ const advisoryCommittee = [
           <div class="academic-card bg-white p-5 flex items-center gap-4 border border-slate-200">
             <div class="w-28 h-28 rounded-[4px] border border-slate-200 overflow-hidden shrink-0 bg-slate-50 flex items-center justify-center shadow-sm">
               <img 
-                src={member.image} 
+                src={getLink(member.image)} 
                 alt={member.name} 
                 class="w-full h-full object-cover"
               />

@@ -10,15 +10,18 @@ const navItems = [
 ];
 
 const { activePage = "" } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const getLink = (path: string) => path === '/' ? base : `${base.replace(/\/$/, '')}${path}`;
 ---
 
 <!-- Top branding area (Static) -->
 <div class="bg-white border-b border-slate-200 py-4.5 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
     <!-- College Details -->
-    <a href="/" class="flex items-center gap-3.5 self-start md:self-auto">
-      <img src="/images/logos/Davv_logo.png" alt="DAVV Logo" class="h-12 w-auto object-contain shrink-0" />
-      <img src="/images/logos/IIPS_logo.png" alt="IIPS Logo" class="h-12 w-auto object-contain shrink-0" />
+    <a href={getLink('/')} class="flex items-center gap-3.5 self-start md:self-auto">
+      <img src={getLink('/images/logos/Davv_logo.png')} alt="DAVV Logo" class="h-12 w-auto object-contain shrink-0" />
+      <img src={getLink('/images/logos/IIPS_logo.png')} alt="IIPS Logo" class="h-12 w-auto object-contain shrink-0" />
       <div class="h-10 w-[1px] bg-slate-200 hidden sm:block mx-1"></div>
       <div>
         <p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">Organized By</p>
@@ -29,12 +32,12 @@ const { activePage = "" } = Astro.props;
     
     <!-- Conference Title & Logos -->
     <div class="flex items-center gap-3.5 self-start md:self-auto border-l-2 md:border-l-0 md:border-r-2 border-primary pl-3.5 md:pl-0 md:pr-3.5 py-1">
-      <img src="/images/logos/Comet_logo.png" alt="CoMET Logo" class="h-11 w-auto object-contain shrink-0" />
+      <img src={getLink('/images/logos/Comet_logo.png')} alt="CoMET Logo" class="h-11 w-auto object-contain shrink-0" />
       <div class="text-left md:text-right">
         <h1 class="text-lg font-black text-primary tracking-wide leading-none">IIPS-CoMET 2026</h1>
         <p class="text-[9px] text-text-muted font-bold tracking-wide uppercase mt-1">IEEE Conference on Modern Emerging Technologies</p>
       </div>
-      <img src="/images/logos/ieee_logo.png" alt="IEEE Logo" class="h-10 w-auto object-contain shrink-0" />
+      <img src={getLink('/images/logos/ieee_logo.png')} alt="IEEE Logo" class="h-10 w-auto object-contain shrink-0" />
     </div>
   </div>
 </div>
@@ -52,7 +55,7 @@ const { activePage = "" } = Astro.props;
             const isActive = activePage === item.name || (item.href === '/' && activePage === 'Home');
             return (
               <a
-                href={item.href}
+                href={getLink(item.href)}
                 class={`px-3.5 py-4.5 text-xs font-bold tracking-wider uppercase transition-all border-b-2 hover:bg-primary-dark ${
                   isActive
                     ? 'border-white bg-primary-dark'
@@ -68,7 +71,7 @@ const { activePage = "" } = Astro.props;
         <!-- Submit Button (Desktop) -->
         <div class="hidden md:block">
           <a
-            href="/call-for-papers"
+            href={getLink('/call-for-papers')}
             class="px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-[3px] text-xs font-bold uppercase tracking-wider transition-all shadow-sm"
           >
             Submit Paper
@@ -124,7 +127,7 @@ const { activePage = "" } = Astro.props;
         const isActive = activePage === item.name || (item.href === '/' && activePage === 'Home');
         return (
           <a
-            href={item.href}
+            href={getLink(item.href)}
             class={`block px-4 py-2.5 rounded-[3px] text-sm font-bold uppercase tracking-wider transition-all ${
               isActive
                 ? 'bg-primary text-white border-l-4 border-white'
@@ -137,7 +140,7 @@ const { activePage = "" } = Astro.props;
       })}
       <div class="pt-4 pb-2 px-4 border-t border-[#00395a]">
         <a
-          href="/call-for-papers"
+          href={getLink('/call-for-papers')}
           class="block w-full text-center py-2 px-4 rounded-[3px] bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs uppercase tracking-wider shadow-sm"
         >
           Submit Paper
