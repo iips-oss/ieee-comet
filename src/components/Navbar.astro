@@ -13,24 +13,28 @@ const { activePage = "" } = Astro.props;
 ---
 
 <!-- Top branding area (Static) -->
-<div class="bg-white border-b border-slate-200 py-5 px-4 sm:px-6 lg:px-8">
+<div class="bg-white border-b border-slate-200 py-4.5 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
     <!-- College Details -->
-    <a href="/" class="flex items-center gap-4 self-start md:self-auto">
-      <div class="w-12 h-12 bg-primary text-white flex items-center justify-center font-bold text-xl rounded-[4px] shadow-sm select-none shrink-0">
-        I
-      </div>
+    <a href="/" class="flex items-center gap-3.5 self-start md:self-auto">
+      <img src="/images/logos/Davv_logo.png" alt="DAVV Logo" class="h-12 w-auto object-contain shrink-0" />
+      <img src="/images/logos/IIPS_logo.png" alt="IIPS Logo" class="h-12 w-auto object-contain shrink-0" />
+      <div class="h-10 w-[1px] bg-slate-200 hidden sm:block mx-1"></div>
       <div>
-        <p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">IEEE Sponsored Conference</p>
-        <h2 class="text-base font-extrabold text-[#004B76] leading-tight">International Institute of Professional Studies</h2>
-        <p class="text-xs text-slate-600 font-medium">Devi Ahilya Vishwavidyalaya (DAVV), Indore, India</p>
+        <p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">Organized By</p>
+        <h2 class="text-sm sm:text-base font-extrabold text-[#004B76] leading-tight">International Institute of Professional Studies</h2>
+        <p class="text-xs text-slate-600 font-semibold">Devi Ahilya Vishwavidyalaya (DAVV), Indore, India</p>
       </div>
     </a>
     
-    <!-- Conference Title -->
-    <div class="text-left md:text-right self-start md:self-auto shrink-0 border-l-2 md:border-l-0 md:border-r-2 border-primary pl-3 md:pl-0 md:pr-3 py-1">
-      <h1 class="text-xl font-black text-primary tracking-wide leading-none">IIPS-CoMET 2026</h1>
-      <p class="text-[10px] text-text-muted font-bold tracking-wide uppercase mt-1">IEEE Conference on Modern Emerging Technologies</p>
+    <!-- Conference Title & Logos -->
+    <div class="flex items-center gap-3.5 self-start md:self-auto border-l-2 md:border-l-0 md:border-r-2 border-primary pl-3.5 md:pl-0 md:pr-3.5 py-1">
+      <img src="/images/logos/Comet_logo.png" alt="CoMET Logo" class="h-11 w-auto object-contain shrink-0" />
+      <div class="text-left md:text-right">
+        <h1 class="text-lg font-black text-primary tracking-wide leading-none">IIPS-CoMET 2026</h1>
+        <p class="text-[9px] text-text-muted font-bold tracking-wide uppercase mt-1">IEEE Conference on Modern Emerging Technologies</p>
+      </div>
+      <img src="/images/logos/ieee_logo.png" alt="IEEE Logo" class="h-10 w-auto object-contain shrink-0" />
     </div>
   </div>
 </div>

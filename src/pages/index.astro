@@ -1,33 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Countdown from "../components/Countdown.astro";
 
 const keynoteSpeakers = [
   {
-    name: "Dr. Aradhana Gupta",
-    role: "Professor & Head of AI Lab",
-    institution: "IIT Bombay, India",
-    topic: "Generative AI: The Next Frontier in Cyber-Physical Systems",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300&h=300",
+    name: "Dr. Armen V. Papazian",
+    role: "Financial Economist & Researcher",
+    institution: "Value Space Research, United Kingdom",
+    topic: "The Space Value of Money and Financial Ethics in Emerging Technologies",
+    image: "/images/people/speaker/Dr.Armen_V.Papazian.jpg",
   },
   {
-    name: "Dr. Marcus Vance",
-    role: "Principal Research Architect",
-    institution: "Intel Labs, USA",
-    topic:
-      "Next-Gen Edge Computing architectures for Ultra-Reliable Low-Latency IoT",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=300&h=300",
+    name: "Mr. Ashish Limaye",
+    role: "Business Transformation Architect",
+    institution: "Industry Solutions Consultant, India",
+    topic: "Enterprise Integration and Scalable IoT Architecture Deployment",
+    image: "/images/people/speaker/Mr.AshishLimaye.jpg",
   },
   {
-    name: "Dr. Sarah Jenkins",
-    role: "Associate Professor, Cyber Security Institute",
-    institution: "National University of Singapore",
-    topic:
-      "Post-Quantum Cryptography: Securing the Future of Decentralized Finance",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300&h=300",
+    name: "Mr. Vineet Saraiwala",
+    role: "Founder & CEO, Aatmanirbhar",
+    institution: "Accessibility Advocate, IIM Bangalore Alumnus",
+    topic: "Accessibility Engineering and Inclusive Design in Modern Web Systems",
+    image: "/images/people/speaker/Mr.VineetSaraiwala.jpg",
   },
 ];
 
@@ -50,15 +44,29 @@ const highlights = [
 <Layout title="Home" activePage="Home">
 
   <!-- Hero Section -->
-  <section
-    class="relative bg-slate-50 border-b border-slate-200 py-16 md:py-24"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <section class="relative bg-slate-50 text-slate-900 py-20 md:py-28 overflow-hidden border-b border-slate-200">
+    <!-- Sliding Background Images -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <!-- Transparent White Overlays for visibility and readability -->
+      <div class="absolute inset-0 bg-white/65 z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-white/30 z-10"></div>
+      
+      <!-- Slide 1 -->
+      <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
+        <img src="/images/campus/IIPS_college.jpg" alt="IIPS College" class="w-full h-full object-cover" />
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+        <img src="/images/campus/DAVV_campus.jpg" alt="DAVV Campus" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
       <!-- Tag / Badge -->
       <div
-        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[4px] bg-white border border-slate-200 text-xs font-bold text-slate-700 mb-6 shadow-sm"
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[4px] bg-white/85 border border-slate-200/80 backdrop-blur-sm text-xs font-bold text-slate-700 mb-6 shadow-sm"
       >
-        <span class="w-2 h-2 rounded-full bg-[#00629B]"></span>
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
         <span>IEEE Technical Co-sponsorship (Applied)</span>
       </div>
 
@@ -76,7 +84,7 @@ const highlights = [
 
       <!-- Date & Location -->
       <p
-        class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600 font-medium mb-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6"
+        class="max-w-2xl mx-auto text-sm sm:text-base text-slate-650 font-semibold mb-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6"
       >
         <span class="flex items-center gap-1.5">
           <svg
@@ -87,7 +95,7 @@ const highlights = [
             ><path
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
+              stroke-width="2.5"
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             ></path></svg
           >
@@ -103,7 +111,7 @@ const highlights = [
             ><path
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
+              stroke-width="2.5"
               d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
             ></path></svg
           >
@@ -115,24 +123,34 @@ const highlights = [
       <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
         <a
           href="/call-for-papers"
-          class="px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-[4px] text-sm font-bold tracking-wide transition-all shadow-sm"
+          class="px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-[4px] text-sm font-bold uppercase tracking-wider transition-all shadow-sm"
         >
           Submit Your Paper
         </a>
         <a
           href="/registration"
-          class="px-6 py-3 bg-white hover:bg-slate-100 text-primary border border-primary rounded-[4px] text-sm font-bold tracking-wide transition-all shadow-sm"
+          class="px-6 py-3 bg-white hover:bg-slate-50 text-primary border border-primary rounded-[4px] text-sm font-bold uppercase tracking-wider transition-all shadow-sm"
         >
           Register for Event
         </a>
       </div>
 
-      <!-- Countdown Wrapper -->
-      <div class="max-w-2xl mx-auto">
-        <Countdown
-          targetDate="2026-10-15T23:59:59"
-          title="Paper Submission Deadline Ends In"
-        />
+      <!-- Key Dates Quick Bar -->
+      <div class="mt-8 text-xs sm:text-sm tracking-wide flex flex-wrap justify-center items-center gap-x-6 gap-y-2.5">
+        <span class="flex items-center gap-1.5">
+          <strong class="text-primary font-bold uppercase tracking-wider text-[11px] sm:text-xs">Draft Submission:</strong>
+          <span class="text-slate-900 font-extrabold">October 15, 2026</span>
+        </span>
+        <span class="hidden sm:inline text-slate-300 font-extrabold">•</span>
+        <span class="flex items-center gap-1.5">
+          <strong class="text-primary font-bold uppercase tracking-wider text-[11px] sm:text-xs">Acceptance:</strong>
+          <span class="text-slate-900 font-extrabold">November 10, 2026</span>
+        </span>
+        <span class="hidden sm:inline text-slate-300 font-extrabold">•</span>
+        <span class="flex items-center gap-1.5">
+          <strong class="text-primary font-bold uppercase tracking-wider text-[11px] sm:text-xs">Camera Ready:</strong>
+          <span class="text-slate-900 font-extrabold">November 30, 2026</span>
+        </span>
       </div>
     </div>
   </section>
@@ -236,19 +254,19 @@ const highlights = [
           Devi Ahilya Vishwavidyalaya. It is known for running highly integrated professional
           programs in management and computer applications.
         </p>
-        <div
-          class="h-48 rounded bg-slate-100 border border-slate-200 flex flex-col justify-center items-center p-6 text-center"
-        >
-          <span
-            class="text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1"
-            >Takshashila Campus</span
-          >
-          <span class="text-slate-800 font-bold text-lg"
-            >Devi Ahilya Vishwavidyalaya</span
-          >
-          <span class="text-xs text-primary font-semibold mt-1"
-            >Indore, MP, India</span
-          >
+        <div class="mt-4 border-t border-slate-100 pt-4 space-y-2.5 text-xs text-slate-650">
+          <div class="flex items-start gap-2.5">
+            <span class="text-primary font-bold">✓</span>
+            <span><strong>Established:</strong> 1992 (celebrating over 3 decades of academic excellence).</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="text-primary font-bold">✓</span>
+            <span><strong>Campus:</strong> Housed within the central Takshashila Campus of DAVV Indore.</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="text-primary font-bold">✓</span>
+            <span><strong>Focus:</strong> A state-of-the-art study center combining computer applications, information technology, and management research.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -277,26 +295,26 @@ const highlights = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {
           keynoteSpeakers.map((speaker) => (
-            <div class="academic-card bg-white flex flex-col h-full overflow-hidden">
-              <div class="h-56 bg-slate-100 relative overflow-hidden shrink-0 border-b border-slate-100">
+            <div class="academic-card bg-white p-6 flex flex-col items-center text-center h-full border border-slate-200">
+              <div class="w-40 h-40 rounded-[4px] border border-slate-200 overflow-hidden bg-slate-50 mb-4 flex items-center justify-center shrink-0 shadow-sm">
                 <img
                   src={speaker.image}
                   alt={speaker.name}
-                  class="w-full h-full object-cover grayscale"
+                  class="w-full h-full object-cover"
                 />
               </div>
-              <div class="p-5 flex-grow flex flex-col justify-between">
-                <div class="space-y-2">
-                  <span class="text-[10px] text-primary font-bold uppercase tracking-wider">
+              <div class="flex-grow flex flex-col justify-between">
+                <div>
+                  <span class="text-[9px] text-primary font-bold uppercase tracking-wider block mb-1">
                     {speaker.role}
                   </span>
-                  <h3 class="text-slate-900 font-bold text-base tracking-wide">
+                  <h3 class="text-slate-900 font-extrabold text-base tracking-wide mb-0.5">
                     {speaker.name}
                   </h3>
-                  <p class="text-xs text-slate-500 font-semibold">
+                  <p class="text-xs text-slate-500 font-semibold mb-3">
                     {speaker.institution}
                   </p>
-                  <div class="border-t border-slate-100 my-3" />
+                  <div class="h-[1px] w-12 bg-slate-200 mx-auto mb-3" />
                   <p class="text-xs text-slate-600 leading-relaxed italic">
                     <strong>Talk title:</strong> "{speaker.topic}"
                   </p>
@@ -309,4 +327,18 @@ const highlights = [
     </div>
   </section>
 </Layout>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  if (slides.length > 0) {
+    setInterval(() => {
+      slides[currentSlide].classList.remove('opacity-100');
+      slides[currentSlide].classList.add('opacity-0');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.remove('opacity-0');
+      slides[currentSlide].classList.add('opacity-100');
+    }, 5000);
+  }
+</script>
 

@@ -46,3 +46,7 @@ Professional conference website for the International Conference on < To be Deci
     npm run build
     ```
     The static site will be generated in the `dist/` folder.
+
+## references
+
+- https://iciis2026.iiitm.ac.in/

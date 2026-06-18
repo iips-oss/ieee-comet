@@ -1,14 +1,55 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const committeeGroups = [
+const keyLeadership = [
   {
-    category: "Patrons",
-    members: [
-      { name: "Prof. (Dr.) Renu Jain", role: "Chief Patron", institution: "Vice Chancellor, Devi Ahilya Vishwavidyalaya (DAVV), Indore" },
-      { name: "Prof. (Dr.) B. K. Tripathi", role: "Patron", institution: "Director, International Institute of Professional Studies (IIPS), DAVV" }
-    ]
+    name: "Dr. Rakesh Singhai",
+    role: "Chief Patron",
+    title: "Vice Chancellor",
+    institution: "Devi Ahilya Vishwavidyalaya (DAVV), Indore, India",
+    image: "/images/people/committee/Patron_Dr.Rakesh_Singhai(VC_sir).jpg"
   },
+  {
+    name: "Dr. Yamini Karmarkar",
+    role: "Conference Director",
+    title: "Director",
+    institution: "International Institute of Professional Studies (IIPS), DAVV",
+    image: "/images/people/committee/Conference_dir_Yamini Karmarkar.jpg"
+  },
+  {
+    name: "Dr. Ajay Verma",
+    role: "Patron / Registrar",
+    title: "Registrar",
+    institution: "Devi Ahilya Vishwavidyalaya (DAVV), Indore, India",
+    image: "/images/people/committee/Registrar_Dr.AjayVerma.jpg"
+  }
+];
+
+const conveners = [
+  {
+    name: "Dr. Shaligram Prajapat",
+    role: "Convener",
+    title: "Professor",
+    institution: "International Institute of Professional Studies (IIPS), DAVV",
+    image: "/images/people/committee/Conveners_Shaligram Prajapat.jpg"
+  },
+  {
+    name: "Dr. Shilpa Bagdare",
+    role: "Convener",
+    title: "Associate Professor",
+    institution: "International Institute of Professional Studies (IIPS), DAVV",
+    image: "/images/people/committee/Conveners_Shilpa Bagdare.jpg"
+  },
+  {
+    name: "Dr. Bhumika Gupta",
+    role: "Convener",
+    title: "Associate Professor",
+    institution: "International Institute of Professional Studies (IIPS), DAVV",
+    image: "/images/people/committee/Conveners_BhumikaGupta.jpg"
+  }
+];
+
+const committeeGroups = [
   {
     category: "General Chairs",
     members: [
@@ -56,8 +97,64 @@ const advisoryCommittee = [
   </section>
 
   <!-- Core Committee Sections -->
-  <section class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+  <section class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
     
+    <!-- Leadership Block (With Photos) -->
+    <div class="space-y-8">
+      <div class="flex items-center gap-4">
+        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight shrink-0">Conference Leadership</h2>
+        <div class="h-[1px] w-full bg-slate-200"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {keyLeadership.map((member) => (
+          <div class="academic-card bg-white p-5 flex items-center gap-4 border border-slate-200">
+            <div class="w-28 h-28 rounded-[4px] border border-slate-200 overflow-hidden shrink-0 bg-slate-50 flex items-center justify-center shadow-sm">
+              <img 
+                src={member.image} 
+                alt={member.name} 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="flex-grow min-w-0">
+              <span class="text-[9px] text-primary font-bold tracking-wider uppercase block mb-0.5">{member.role}</span>
+              <h3 class="text-slate-900 font-extrabold text-sm tracking-wide truncate">{member.name}</h3>
+              <p class="text-[11px] text-slate-700 font-semibold mb-1">{member.title}</p>
+              <p class="text-[10px] text-slate-500 leading-tight line-clamp-3">{member.institution}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Conveners Block (With Photos) -->
+    <div class="space-y-8">
+      <div class="flex items-center gap-4">
+        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight shrink-0">Conference Conveners</h2>
+        <div class="h-[1px] w-full bg-slate-200"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {conveners.map((member) => (
+          <div class="academic-card bg-white p-5 flex items-center gap-4 border border-slate-200">
+            <div class="w-28 h-28 rounded-[4px] border border-slate-200 overflow-hidden shrink-0 bg-slate-50 flex items-center justify-center shadow-sm">
+              <img 
+                src={member.image} 
+                alt={member.name} 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="flex-grow min-w-0">
+              <span class="text-[9px] text-primary font-bold tracking-wider uppercase block mb-0.5">{member.role}</span>
+              <h3 class="text-slate-900 font-extrabold text-sm tracking-wide truncate">{member.name}</h3>
+              <p class="text-[11px] text-slate-700 font-semibold mb-1">{member.title}</p>
+              <p class="text-[10px] text-slate-500 leading-tight line-clamp-3">{member.institution}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
     <!-- Loop through core committee groups -->
     {committeeGroups.map((group) => (
       <div class="space-y-6">
