@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ieee-comet</title>
+    <link rel="stylesheet" href="css/highlights.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
     <section class="navbar">
@@ -16,6 +20,78 @@
 
     </section>
     <section class="highlights">
+
+        <div class="highlights-header">
+            <p class="eyebrow">Conference Highlights</p>
+            <h2 class="section-title">Moments from Past Editions</h2>
+            <p class="section-sub">Over a decade of bringing the global AI research community together across continents.</p>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight1.jpg" alt="Conference hall overview"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight2.jpg" alt="Keynote speaker on stage"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight3.jpg" alt="Panel discussion"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight4.jpg" alt="Networking session"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight5.jpg" alt="Workshop breakout"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight6.jpg" alt="Audience engagement"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight7.jpg" alt="Awards ceremony"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight1.jpg" alt="Conference hall overview"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/images/highlights/highlight2.jpg" alt="Keynote speaker on stage"/>
+                </div>
+                
+                
+                
+
+            </div>
+
+            <!-- Navigation arrows -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+        </div>
+
+    <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+            <div class="stat-icon"> <i class="fa-solid fa-users"></i></div>
+            <span class="stat-num">450+</span>
+            <span class="stat-label">Participants Last Year</span>
+            </div>
+            <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            <span class="stat-num">45</span>
+            <span class="stat-label">Expert Speakers</span>
+            </div>
+            <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
+            <span class="stat-num">180</span>
+            <span class="stat-label">Papers Published</span>
+            </div>
+            <div class="stat-card">
+            <div class="stat-icon"> <i class="fa-solid fa-chart-line"></i></div>
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Satisfaction Rate</span>
+            </div>
+        </div>
 
     </section>
     <section class="speakers">
@@ -42,8 +118,106 @@
     <section class="faqs">
 
     </section>
-    <section class="footer">
+    <footer class="footer">
 
-    </section>
+        <div class="footer-container">
+
+            <!-- Left Section -->
+            <div class="footer-column">
+                <h2>IIPS-CoMET 2026</h2>
+
+                <p>
+                    <strong>Prof. Yamini Karmarkar (Director)</strong><br>
+                    International Institute of Professional Studies<br>
+                    Takshashila Campus, Khandwa Road<br>
+                    Indore - 452001, INDIA
+                </p>
+
+                <div class="email">
+                    <i class="fa-regular fa-envelope"></i>
+                    conference@iips.edu.in
+                </div>
+            </div>
+
+            <!-- Middle Section -->
+            <div class="footer-column">
+                <h3>QUICK LINKS</h3>
+
+                <ul>
+                    <li><a href="#">About Conference</a></li>
+                    <li><a href="#">Keynote Speakers</a></li>
+                    <li><a href="#">Important Dates</a></li>
+                    <li><a href="#">Registration</a></li>
+                    <li><a href="#">Venue Map</a></li>
+                </ul>
+            </div>
+
+            <!-- Right Section -->
+            <div class="footer-column">
+                <h3>CONFERENCE TRACKS</h3>
+
+                <ul>
+                    <li>Management & Human-Centric AI</li>
+                    <li>Entrepreneurship & Innovation</li>
+                    <li>Computer Science & Technology</li>
+                </ul>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+            <p>
+                © 2026 IIPS-CoMET. International Institute of Professional Studies,
+                DAVV. All Rights Reserved.
+            </p>
+
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    const swiper = new Swiper('.mySwiper', {
+        // Core loop & centring
+        loop: true,
+        centeredSlides: true,
+        slidesPerView: 1.4,
+        spaceBetween: 20,
+
+        // Smooth continuous autoplay — no jumps
+        effect: 'slide',
+        cssMode: false,
+        autoplay: {
+            delay: 0,            
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+            stopOnLastSlide: false,
+            
+        },
+        speed: 5000,    
+        speedAfterTransition: false,       
+        
+        allowTouchMove: false,
+        on: {
+            navigationNext() { this.autoplay.start(); },
+            navigationPrev() { this.autoplay.start(); },
+        },
+    });
+
+    
+    </script>
+
 </body>
 </html>
