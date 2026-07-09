@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+const speakerImages = import.meta.glob<{ default: ImageMetadata }>('../assets/images/people/speaker/*.{jpeg,jpg,png,gif,webp}', { eager: true });
+const campusImages = import.meta.glob<{ default: ImageMetadata }>('../assets/images/campus/*.{jpeg,jpg,png,gif,webp}', { eager: true });
 
 const keynoteSpeakers = [
   {
@@ -55,11 +59,11 @@ const getLink = (path: string) => path === '/' ? base : `${base.replace(/\/$/, '
       
       <!-- Slide 1 -->
       <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
-        <img src={getLink('/images/campus/IIPS_college.jpg')} alt="IIPS College" class="w-full h-full object-cover" />
+        <Image src={campusImages['../assets/images/campus/IIPS_college.jpg']?.default} alt="IIPS College" class="w-full h-full object-cover" />
       </div>
       <!-- Slide 2 -->
       <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-        <img src={getLink('/images/campus/DAVV_campus.jpg')} alt="DAVV Campus" class="w-full h-full object-cover" />
+        <Image src={campusImages['../assets/images/campus/DAVV_campus.jpg']?.default} alt="DAVV Campus" class="w-full h-full object-cover" />
       </div>
     </div>
 
@@ -299,8 +303,8 @@ const getLink = (path: string) => path === '/' ? base : `${base.replace(/\/$/, '
           keynoteSpeakers.map((speaker) => (
             <div class="academic-card bg-white p-6 flex flex-col items-center text-center h-full border border-slate-200">
               <div class="w-40 h-40 rounded-[4px] border border-slate-200 overflow-hidden bg-slate-50 mb-4 flex items-center justify-center shrink-0 shadow-sm">
-                <img
-                  src={getLink(speaker.image)}
+                <Image
+                  src={speakerImages[speaker.image.replace('/images/', '../assets/images/')]?.default}
                   alt={speaker.name}
                   class="w-full h-full object-cover"
                 />

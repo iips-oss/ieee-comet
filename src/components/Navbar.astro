@@ -1,4 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+import DavvLogo from '../assets/images/logos/Davv_logo.png';
+import IipsLogo from '../assets/images/logos/IIPS_logo.png';
+import CometLogo from '../assets/images/logos/Comet_logo.png';
+import IeeeLogo from '../assets/images/logos/ieee_logo.png';
+
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'Call for Papers', href: '/call-for-papers' },
@@ -20,8 +26,8 @@ const getLink = (path: string) => path === '/' ? base : `${base.replace(/\/$/, '
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
     <!-- College Details -->
     <a href={getLink('/')} class="flex items-center gap-3.5 self-start md:self-auto">
-      <img src={getLink('/images/logos/Davv_logo.png')} alt="DAVV Logo" class="h-12 w-auto object-contain shrink-0" />
-      <img src={getLink('/images/logos/IIPS_logo.png')} alt="IIPS Logo" class="h-12 w-auto object-contain shrink-0" />
+      <Image src={DavvLogo} alt="DAVV Logo" class="h-12 w-auto object-contain shrink-0" />
+      <Image src={IipsLogo} alt="IIPS Logo" class="h-12 w-auto object-contain shrink-0" />
       <div class="h-10 w-[1px] bg-slate-200 hidden sm:block mx-1"></div>
       <div>
         <p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">Organized By</p>
@@ -32,12 +38,12 @@ const getLink = (path: string) => path === '/' ? base : `${base.replace(/\/$/, '
     
     <!-- Conference Title & Logos -->
     <div class="flex items-center gap-3.5 self-start md:self-auto border-l-2 md:border-l-0 md:border-r-2 border-primary pl-3.5 md:pl-0 md:pr-3.5 py-1">
-      <img src={getLink('/images/logos/Comet_logo.png')} alt="CoMET Logo" class="h-11 w-auto object-contain shrink-0" />
+      <Image src={CometLogo} alt="CoMET Logo" class="h-11 w-auto object-contain shrink-0" />
       <div class="text-left md:text-right">
         <h1 class="text-lg font-black text-primary tracking-wide leading-none">IIPS-CoMET 2026</h1>
         <p class="text-[9px] text-text-muted font-bold tracking-wide uppercase mt-1">IEEE Conference on Modern Emerging Technologies</p>
       </div>
-      <img src={getLink('/images/logos/ieee_logo.png')} alt="IEEE Logo" class="h-10 w-auto object-contain shrink-0" />
+      <Image src={IeeeLogo} alt="IEEE Logo" class="h-10 w-auto object-contain shrink-0" />
     </div>
   </div>
 </div>
