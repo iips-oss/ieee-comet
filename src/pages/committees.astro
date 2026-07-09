@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/people/committee/*.{jpeg,jpg,png,gif,webp}', { eager: true });
 
 const keyLeadership = [
   {
@@ -112,8 +115,8 @@ const getLink = (path: string) => path === '/' ? base : `${base.replace(/\/$/, '
         {keyLeadership.map((member) => (
           <div class="academic-card bg-white p-5 flex items-center gap-4 border border-slate-200">
             <div class="w-28 h-28 rounded-[4px] border border-slate-200 overflow-hidden shrink-0 bg-slate-50 flex items-center justify-center shadow-sm">
-              <img 
-                src={getLink(member.image)} 
+              <Image 
+                src={images[member.image.replace('/images/', '../assets/images/')]?.default} 
                 alt={member.name} 
                 class="w-full h-full object-cover"
               />
@@ -140,8 +143,8 @@ const getLink = (path: string) => path === '/' ? base : `${base.replace(/\/$/, '
         {conveners.map((member) => (
           <div class="academic-card bg-white p-5 flex items-center gap-4 border border-slate-200">
             <div class="w-28 h-28 rounded-[4px] border border-slate-200 overflow-hidden shrink-0 bg-slate-50 flex items-center justify-center shadow-sm">
-              <img 
-                src={getLink(member.image)} 
+              <Image 
+                src={images[member.image.replace('/images/', '../assets/images/')]?.default} 
                 alt={member.name} 
                 class="w-full h-full object-cover"
               />
